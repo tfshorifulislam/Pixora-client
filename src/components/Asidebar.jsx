@@ -27,7 +27,7 @@ const Asidebar = () => {
 
     return (
         <aside
-            className="w-60 h-screen flex flex-col justify-between p-4 text-black dark:text-white transition-colors duration-300">
+            className="w-60 h-screen hidden sm:flex flex-col justify-between p-4 text-black dark:text-white transition-colors duration-300">
 
             <div className="flex flex-col gap-2 mt-2">
                 {navItems.map((item, index) => {
