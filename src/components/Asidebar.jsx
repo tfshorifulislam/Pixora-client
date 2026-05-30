@@ -13,6 +13,7 @@ import {
 } from "react-icons/bi";
 import { MdDashboardCustomize } from "react-icons/md";
 import { ProfileAvatar } from "./ProfileAvatar";
+import { ThemeSwitch } from "./ToggleTheme";
 
 const Asidebar = () => {
   const pathname = usePathname();
@@ -51,7 +52,7 @@ const Asidebar = () => {
               key={item.path}
               href={item.path}
               className={`
-                flex items-center gap-4 px-3 py-3 rounded-full
+                flex items-center gap-4 px-3 py-3 rounded-lg
                 transition-all duration-200
 
                 ${isActive
@@ -89,9 +90,9 @@ const Asidebar = () => {
 
       {/* BOTTOM */}
       <div className="flex flex-col gap-3">
-
+        <ThemeSwitch/>
         <button className="
-          w-full py-3 rounded-full
+          w-full py-3 rounded-lg
           font-bold text-lg
           bg-black text-white
           hover:bg-zinc-800

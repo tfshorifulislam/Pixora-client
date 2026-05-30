@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Asidebar from "@/components/Asidebar";
 import RightSideBar from "@/components/RightSideBar";
+import MobileScreenBottomNavbar from "@/components/MobileScreenBottomNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
               className="flex-1 min-h-screen">
               {children}
             </main>
+            <MobileScreenBottomNavbar />
             <RightSideBar />
           </div>
         </Providers>
