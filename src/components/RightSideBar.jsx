@@ -4,7 +4,7 @@ import SearchInputRightSideTop from "./SearchInputRightSideTop";
 const RightSideBar = () => {
   return (
     <aside
-      className="hidden sm:flex flex-col w-72 h-screen sticky top-0 p-4 gap-4">
+      className="hidden md:flex flex-col w-72 h-screen sticky top-0 p-4 gap-4">
         <SearchInputRightSideTop/>
       <h2 className="text-lg font-semibold">
         Sponsored

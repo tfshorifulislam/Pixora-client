@@ -4,126 +4,108 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-    BiHomeCircle,
-    BiSearch,
-    BiBell,
-    BiMessageSquareDetail,
-    BiBookmark,
-    BiUser,
+  BiHomeCircle,
+  BiSearch,
+  BiBell,
+  BiMessageSquareDetail,
+  BiBookmark,
+  BiUser,
 } from "react-icons/bi";
 import { MdDashboardCustomize } from "react-icons/md";
-import { ThemeSwitch } from "./ToggleTheme";
 import { ProfileAvatar } from "./ProfileAvatar";
-// import { ProfileAvatar } from "./ProfileAvatar";
-
 
 const Asidebar = () => {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    const navItems = [
-        {
-            name: "Home",
-            icon: BiHomeCircle,
-            path: "/",
-        },
-        {
-            name: "Search",
-            icon: BiSearch,
-            path: "/search",
-        },
-        {
-            name: "Notification",
-            icon: BiBell,
-            path: "/notification",
-        },
-        {
-            name: "Chat",
-            icon: BiMessageSquareDetail,
-            path: "/chat",
-        },
-        {
-            name: "Bookmarks",
-            icon: BiBookmark,
-            path: "/bookmarks",
-        },
-        {
-            name: "Dashboard",
-            icon: MdDashboardCustomize,
-            path: "/dashboard",
-        },
-        {
-            name: "Profile",
-            icon: BiUser,
-            path: "/profile",
-        },
-    ];
+  const navItems = [
+    { name: "Home", icon: BiHomeCircle, path: "/" },
+    { name: "Search", icon: BiSearch, path: "/search" },
+    { name: "Notification", icon: BiBell, path: "/notification" },
+    { name: "Chat", icon: BiMessageSquareDetail, path: "/chat" },
+    { name: "Bookmarks", icon: BiBookmark, path: "/bookmarks" },
+    { name: "Dashboard", icon: MdDashboardCustomize, path: "/dashboard" },
+    { name: "Profile", icon: BiUser, path: "/profile" },
+  ];
 
-    return (
-        <aside className="hidden sm:flex w-64 h-screen flex-col justify-between p-4 transition-colors duration-300">
-            <div className="flex flex-col gap-2 mt-2">
-                <div className="px-4 mb-5 rounded-full">
-                    <ProfileAvatar />
-                </div>
+  return (
+    <aside
+      className="
+        hidden md:flex flex-col justify-between
+        h-screen p-3
+        transition-all duration-300
+      "
+    >
+      {/* TOP */}
+      <div className="flex flex-col gap-2 mt-2">
 
-                {navItems.map((item) => {
-                    const isActive = pathname === item.path;
+        {/* PROFILE */}
+        <div className="px-2 mb-4">
+          <ProfileAvatar />
+        </div>
 
-                    return (
-                        <Link
-                            key={item.path}
-                            href={item.path}
-                            className={`
-                flex items-center gap-4 px-4 py-3 rounded-full
+        {navItems.map((item) => {
+          const isActive = pathname === item.path;
+
+          return (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`
+                flex items-center gap-4 px-3 py-3 rounded-full
                 transition-all duration-200
 
                 ${isActive
-                                    ? "bg-zinc-100 dark:bg-zinc-900"
-                                    : "hover:bg-zinc-100 dark:hover:bg-zinc-900"
-                                }
+                  ? "bg-zinc-100 dark:bg-zinc-900"
+                  : "hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                }
               `}
-                        >
-                            {/* Icon */}
-                            <div className="relative flex items-center justify-center">
-                                <item.icon
-                                    size={26}
-                                    className={
-                                        isActive
-                                            ? "text-black dark:text-white"
-                                            : "text-zinc-700 dark:text-zinc-400"
-                                    }
-                                />
-                            </div>
+            >
+              {/* ICON */}
+              <item.icon
+                size={24}
+                className={
+                  isActive
+                    ? "text-black dark:text-white"
+                    : "text-zinc-600 dark:text-zinc-400"
+                }
+              />
 
-
-                            <span
-                                className={`
-                  text-lg tracking-wide
+              {/* TEXT → ONLY show on lg */}
+              <span
+                className={`
+                  hidden lg:inline text-base tracking-wide
                   ${isActive
-                                        ? "font-bold text-black dark:text-white"
-                                        : " text-zinc-700 dark:text-zinc-300"
-                                    }
+                    ? "font-bold text-black dark:text-white"
+                    : "text-zinc-700 dark:text-zinc-300"
+                  }
                 `}
-                            >
-                                {item.name}
-                            </span>
-                        </Link>
-                    );
-                })}
-            </div>
+              >
+                {item.name}
+              </span>
+            </Link>
+          );
+        })}
+      </div>
 
+      {/* BOTTOM */}
+      <div className="flex flex-col gap-3">
 
-            <div className="flex flex-col gap-4">
-                {/* Theme Switch */}
-                <div className="border-b border-zinc-200 dark:border-zinc-800 pt-4">
-                    <ThemeSwitch />
-                </div>
+        <button className="
+          w-full py-3 rounded-full
+          font-bold text-lg
+          bg-black text-white
+          hover:bg-zinc-800
+          dark:bg-white dark:text-black
+          dark:hover:bg-zinc-200
+          transition-all duration-200
+          active:scale-95
+        ">
+          Post
+        </button>
 
-                <button className="w-full py-3.5 px-4 rounded-full font-bold text-lg bg-black text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 shadow-md transition-all duration-200 active:scale-95">
-                    Post
-                </button>
-            </div>
-        </aside>
-    );
+      </div>
+    </aside>
+  );
 };
 
 export default Asidebar;
