@@ -61,7 +61,7 @@ const Asidebar = () => {
     return (
         <aside className="hidden sm:flex w-64 h-screen flex-col justify-between p-4 transition-colors duration-300">
             <div className="flex flex-col gap-2 mt-2">
-                <div className="px-4 py-3 rounded-full">
+                <div className="px-4 mb-5 rounded-full">
                     <ProfileAvatar />
                 </div>
 

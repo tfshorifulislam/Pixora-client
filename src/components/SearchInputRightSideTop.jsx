@@ -1,22 +1,23 @@
-'use client'
-import {  SearchField } from '@heroui/react';
-import { useState } from 'react';
+"use client";
+
+import { useState } from "react";
+import { Input } from "@heroui/react";
+import { BiSearch } from "react-icons/bi";
 
 const SearchInputRightSideTop = () => {
-    const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
 
-    return (
-        <div>
-            <SearchField name="search" value={value} onChange={setValue}>
-               
-                <SearchField.Group>
-                    <SearchField.SearchIcon />
-                    <SearchField.Input className="w-70" placeholder="Search..." />
-                    <SearchField.ClearButton />
-                </SearchField.Group>
-            </SearchField>
-        </div>
-    );
+  return (
+    <div className="mb-8">
+      <Input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Search..."
+        startContent={<BiSearch size={18} />}
+        className="w-full rounded-sm py-3"
+      />
+    </div>
+  );
 };
 
 export default SearchInputRightSideTop;
