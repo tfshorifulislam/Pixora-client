@@ -1,10 +1,9 @@
-import { ThemeSwitch } from '@/components/ToggleTheme';
 import React from 'react';
 
 const HomePage = () => {
   return (
     <div>
-      
+     
     </div>
   );
 };
